@@ -98,7 +98,7 @@ def eth_run(env, base_prompt, memory, starting_state, args):
             debug_print(daily_result, None, 'CURRENT RESULT')
 
         cur_step += 1
-        time.sleep(1)
+        time.sleep(3)
     is_success = total_return > 0.1 # modify sucess condition
     return env_history, is_success
 
@@ -166,3 +166,11 @@ ACCURACY: {round(num_successes / num_envs, 2)}
         wf.write(log_str + '\n')
 
     return env_configs
+
+if __name__ == "__main__":
+    prompt = "Hi, how are you?"
+    model = "gemini-2.5-pro-exp-03-25"
+
+    seed = 42
+    response = llm(prompt, model, seed)
+    print(response)
